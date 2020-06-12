@@ -34,7 +34,7 @@ namespace SeleniumSpecFlowFrameWork.L2_StepDefinitions
         [Then(@"The user should be able to see all results with (.*)")]
         public void ThenTheUserShouldBeAbleToSeeAllResultsWith(string p0)
         {
-            Assert.IsFalse(new SearchPage(sso).IsErrorMessageDisplayed());            
+            Assert.IsTrue(new SearchPage(sso).IsErrorMessageDisplayed());            
         }
     }
 
