@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using Protractor;
 using SeleniumSpecFlowFrameWork.Global;
 using System;
 using System.Collections.Generic;
@@ -28,17 +29,18 @@ namespace SeleniumSpecFlowFrameWork.L2_StepDefinitions.Hooks
         {
            new DriverManager().SetUpDriver(new ChromeConfig());
             sso.driver = new ChromeDriver();
-            //sso.driver.Url = x;
-            sso.driver.Url = DataHooks.EnvData["baseurl"];
             int timespan = Int32.Parse(DataHooks.EnvData["default_timeout"]);
             sso.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(timespan);
-            sso.driver.Manage().Window.Maximize();
+            sso.ngDriver = new NgWebDriver(sso.driver);
+            sso.ngDriver.IgnoreSynchronization = true;
+            sso.ngDriver.Url = DataHooks.EnvData["baseurl"];                   
+            sso.ngDriver.Manage().Window.Maximize();
         }
 
-       /* [AfterScenario]
+        [AfterScenario]
         public void TearDown()
         {
-            sso.driver.Quit();
-        }*/
+            sso.ngDriver.Quit();
+        }
     }
 }

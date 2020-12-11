@@ -1,5 +1,3 @@
-﻿baseurl = http://automationpractice.com
-username = faizan125@hotmail.com
-password = Test1234
+﻿baseurl = https://kipstaging.keyedinuat.com/KIP4/
 default_timeout = 15
 

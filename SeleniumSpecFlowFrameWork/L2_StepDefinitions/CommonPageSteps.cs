@@ -26,14 +26,9 @@ namespace SeleniumSpecFlowFrameWork.L2_StepDefinitions
         [Given(@"The user navigate to the authentication page")]
         public void GivenINavigateToTheAuthenticationPage()
         {
-            new CommonPage(sso).NavigateTo(DataHooks.EnvData["baseurl"] + "/index.php?controller=authentication&back=my-account");
+            new CommonPage(sso).NavigateTo();
         }
 
-        [Given(@"The user navigates to home page")]
-        public void GivenTheUserNavigatesToHomePage()
-        {
-            new CommonPage(sso).NavigateTo(DataHooks.EnvData["baseurl"]);
-        }
-
+       
     }
 }

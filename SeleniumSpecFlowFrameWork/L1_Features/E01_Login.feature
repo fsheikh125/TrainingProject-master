@@ -6,12 +6,9 @@
 @login
 Scenario: Valid Login
 	Given I navigate to the authentication page
-	When I provide valid credentials and submit
-	Then I should be on my accounts page
+	When I provide valid credentials and signin
+	Then I should be able to go to location page
+	Then I should be able to add new Location entry
 
 
-@InvalidLogIn
-Scenario: InValid LogIn
-	Given I navigate to the authentication page
-	When I provide invalid credentials and submit
-	Then I should get an authentication failed error
+

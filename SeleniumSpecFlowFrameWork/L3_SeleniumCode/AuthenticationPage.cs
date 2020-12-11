@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
 using SeleniumSpecFlowFrameWork.Global;
 using System;
 using System.Collections.Generic;
@@ -9,41 +8,36 @@ using System.Threading.Tasks;
 
 namespace SeleniumSpecFlowFrameWork.L3_SeleniumCode
 {
-    public class AuthenticationPage
+    class AuthenticationPage
     {
-        
-        By Email_txt = By.Id("email");
-        By Password_txt = By.Id("passwd");
-        By Submit_btn = By.Id("SubmitLogin");
-        By errorMessage_txt = By.XPath("//li[text()='Authentication failed.']");
-        
+
 
         ShareStateObjects sso;
 
         public AuthenticationPage(ShareStateObjects _sso)
         {
             this.sso = _sso;
+
         }
-
-
-        public void Login(string username, string password)
+        public void ValidLogin()
         {
-            sso.driver.FindElement(Email_txt).SendKeys(username);
-            sso.driver.FindElement(Password_txt).SendKeys(password);
-            sso.driver.FindElement(Submit_btn).Click();
+           
+
+            sso.driver.FindElement(By.Id("txtUserID")).SendKeys("FSHEIKH@keyedin4.com");
+            sso.driver.FindElement(By.Id("txtPassword")).SendKeys("TEst1234");
+            sso.driver.FindElement(By.Id("btnLogin")).Click();
+
+
         }
 
-        public void ClearEmailField()
+
+        public void HomePage()
         {
-            sso.driver.FindElement(Email_txt).Clear();
-        }
 
-        public bool IsErrorMessageDisplayed()
-        {
-            var messageDisplayed = sso.driver.FindElement(errorMessage_txt).Displayed;
-            return messageDisplayed;
-        }
+            sso.driver.FindElement(By.XPath("//body/div[3]/div[1]/div[1]/div[3]/div[1]/ul[2]/li[4]/a[1]/i[1]")).Click();
+            sso.driver.FindElement(By.XPath("//span[contains(text(),'Locations')]")).Click();
+            
 
-        
+        }
     }
 }
