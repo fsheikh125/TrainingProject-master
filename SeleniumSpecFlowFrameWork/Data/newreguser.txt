@@ -1,5 +1,0 @@
-﻿newemail = faizan
-newdomain = @yahoo.com
-fname=Faizan
-lname = Sheikh
-city = Dewsbury

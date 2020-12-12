@@ -75,8 +75,14 @@
     <Reference Include="nunit.framework, Version=3.11.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Protractor, Version=0.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Protractor.0.13.0\lib\net40\Protractor.dll</HintPath>
+    </Reference>
     <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
       <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SeleniumExtras.WaitHelpers, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -166,35 +172,42 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global\ShareStateObjects.cs" />
-    <Compile Include="L2_StepDefinitions\AddProductToCartSteps.cs" />
+    <Compile Include="L2_StepDefinitions\AddLocationSteps.cs" />
     <Compile Include="L2_StepDefinitions\AuthenticationPageSteps.cs" />
     <Compile Include="L2_StepDefinitions\Hooks\ExtentHooks.cs" />
-    <Compile Include="L2_StepDefinitions\PlaceanOrderSteps.cs" />
-    <Compile Include="L2_StepDefinitions\RegisterNewUserSteps.cs" />
     <Compile Include="L2_StepDefinitions\CommonPageSteps.cs" />
     <Compile Include="L2_StepDefinitions\Hooks\BrowserHooks.cs" />
     <Compile Include="L2_StepDefinitions\Hooks\DataHooks.cs" />
-    <Compile Include="L2_StepDefinitions\MyAccountPageSteps.cs" />
-    <Compile Include="L2_StepDefinitions\SearchPageSteps.cs" />
+    <Compile Include="L2_StepDefinitions\LocationPageStep.cs" />
     <Compile Include="L3_SeleniumCode\AuthenticationPage.cs" />
     <Compile Include="L3_SeleniumCode\CommonPage.cs" />
+    <Compile Include="L3_SeleniumCode\HomePage.cs" />
+    <Compile Include="L3_SeleniumCode\LocationPage.cs" />
     <Compile Include="L3_SeleniumCode\MyAccountPage.cs" />
-    <Compile Include="L3_SeleniumCode\RegisterNewUserPage.cs" />
-    <Compile Include="L3_SeleniumCode\SearchPage.cs" />
+    <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\ModalSidePopups\AddLocationModal.cs" />
+    <Compile Include="Pages\MyWorkPage.cs" />
+    <Compile Include="Pages\PullRightMenu.cs" />
+    <Compile Include="Pages\SearchPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="L1_Features\AddProductToCart.feature" />
+    <None Include="L1_Features\KIP_BenefitType.feature" />
+    <None Include="L1_Features\KIP_BillingPriceList.feature" />
+    <None Include="L1_Features\KIP_Currency.feature" />
+    <None Include="L1_Features\KIP_DeliverableType.feature" />
+    <None Include="L1_Features\KIP_Location.feature" />
     <None Include="L1_Features\E01_Login.feature" />
-    <None Include="L1_Features\PlaceAnOrder.feature" />
-    <None Include="L1_Features\RegisterNewUser.feature" />
-    <None Include="L1_Features\SearchProduct.feature" />
+    <None Include="L1_Features\KIP_MitigationPlanItemType.feature" />
+    <None Include="L1_Features\KIP_NominalCode.feature" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Data\newreguser.txt" />
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Environment\TestStaging.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,20 +8,26 @@ using System.Threading.Tasks;
 
 namespace SeleniumSpecFlowFrameWork.L3_SeleniumCode
 {
-    class CommonPage
+    class HomePage
     {
 
 
         ShareStateObjects sso;
 
-        public CommonPage(ShareStateObjects _sso)
+        public HomePage(ShareStateObjects _sso)
         {
             this.sso = _sso;
 
         }
-        public void NavigateTo()
+        public void ValidLogin()
         {
-            sso.driver.Navigate().GoToUrl("https://kipstaging.keyedinuat.com/KIP4/");
+
+
+            sso.driver.FindElement(By.Id("txtUserID")).SendKeys("autotest@workflows.com");
+            sso.driver.FindElement(By.Id("txtPassword")).SendKeys("TEst1234");
+            sso.driver.FindElement(By.Id("btnLogin")).Click();
+
+
         }
     }
 }
